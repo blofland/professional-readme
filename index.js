@@ -2,17 +2,15 @@
 const inquirer = require('inquirer');
 
 //questions
-const promptUser = () => {
-    return inquirer.prompt([
       {
         type: 'input',
-        name: 'name',
-        message: 'What is your name of your project? (Required)',
-        validate: nameInput => {
-          if (nameInput) {
+        name: 'title',
+        message: 'What is your title of your project? (Required)',
+        validate: titleInput => {
+          if (titleInput) {
             return true;
           } else {
-            console.log('Please enter name of project to continue!');
+            console.log('Please enter title of project to continue!');
             return false;
           }
         }
@@ -28,6 +26,21 @@ const promptUser = () => {
              } else {
                  console.log('You need to provide a description!');
                  return false;
+             }
+         }
+     },
+
+     {
+         type: 'input',
+         name: 'toc',
+         message: 'Please add table of contents. (Required)',
+         validate: tocinput => {
+             if (tocInput) {
+                 return true;
+             } else {
+                 console.log('You need to provide a table of contents');
+                 return false;
+             }
              }
          }
      },
@@ -60,3 +73,32 @@ const promptUser = () => {
             }
         }
     },
+{
+    type: 'input',
+    name: 'contribution',
+    message: 'Who contributed to the project? (Required)',
+    validate: contributionInput => {
+        if (contributionInput) {
+            return true;
+        } else{
+            console.log('You need to provide information on who contributed!');
+            return false;
+        }
+        }
+    }
+},
+
+{
+    type: 'input',
+    name: 'testing',
+    message: 'How do you test this project? (Required)',
+    validate: testingInput => {
+        if (testingInput) {
+            return true;
+        } else {
+            console.log('You need to provide how to test project!');
+            return false;
+        }
+        }
+    }
+},
