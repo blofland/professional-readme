@@ -31,3 +31,32 @@ const promptUser = () => {
              }
          }
      },
+
+     {
+         type: 'input',
+         name: 'installation',
+         message: 'How do you install your project? (Required)',
+         validate: installationInput => {
+             if (installationInput) {
+                 return true;
+             } else {
+                 console.log('You need to provide installation information!');
+                 return false;
+             }
+         }
+     },
+
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How do you use this project'),
+        validate: usageInput => {
+            if (usageInput) {
+                return true;
+            } else {
+                console.log('You need to provide information on how to use product');
+                return false;
+            }
+            }
+        }
+    },
