@@ -1,7 +1,10 @@
 // Require
+const fs = require('fs');
 const inquirer = require('inquirer');
+const { writeFile,} = require('./utils/generate-page');
 
 //questions
+const questions = [
       {
         type: 'input',
         name: 'title',
@@ -40,7 +43,7 @@ const inquirer = require('inquirer');
              } else {
                  console.log('You need to provide a table of contents');
                  return false;
-             }
+             
              }
          }
      },
@@ -62,7 +65,7 @@ const inquirer = require('inquirer');
     {
         type: 'input',
         name: 'usage',
-        message: 'How do you use this project'),
+        message: 'How do you use this project',
         validate: usageInput => {
             if (usageInput) {
                 return true;
@@ -70,7 +73,7 @@ const inquirer = require('inquirer');
                 console.log('You need to provide information on how to use product');
                 return false;
             }
-            }
+            
         }
     },
 {
@@ -84,7 +87,7 @@ const inquirer = require('inquirer');
             console.log('You need to provide information on who contributed!');
             return false;
         }
-        }
+        
     }
 },
 
@@ -99,6 +102,8 @@ const inquirer = require('inquirer');
             console.log('You need to provide how to test project!');
             return false;
         }
-        }
+        
     }
-},
+}]
+
+questions
