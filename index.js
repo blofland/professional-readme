@@ -4,7 +4,8 @@ const inquirer = require('inquirer');
 const { writeFile,} = require('./utils/generate-page');
 
 //questions
-const questions = [
+inquirer 
+.prompt ([ 
       {
         type: 'input',
         name: 'title',
@@ -23,7 +24,7 @@ const questions = [
          type: 'input',
          name: 'description',
          message: 'Provide a description of the project. (Required)',
-         validate: desciptionInput => {
+         validate: descriptionInput => {
              if (descriptionInput) {
                  return true;
              } else {
@@ -37,7 +38,7 @@ const questions = [
          type: 'input',
          name: 'toc',
          message: 'Please add table of contents. (Required)',
-         validate: tocinput => {
+         validate: tocInput => {
              if (tocInput) {
                  return true;
              } else {
@@ -104,6 +105,12 @@ const questions = [
         }
         
     }
-}]
+}])
 
-questions
+promptUser()
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
+  .then(pageMD => {
+    return writeFile(pageHTML);
+  })
