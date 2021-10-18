@@ -1,18 +1,35 @@
 const fs = require('fs');
 
-// writing files
-const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile('./dist/readme.md', fileContent, err => {
-        if (err) {
-          reject(err);
-          return;
-        }
+const generateMarkdown = data => {
+    return `# ${data.title}
+    
+    
+    ##Description
+    ${data.description}
+    
+    ## Table of Contents
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [License](#license)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [Questions](#questions)
+    
+    ## Installation 
+    ${data.install}
+    ## Usage 
+    ${data.usage}
+    ## License 
+    This project is license under ${data.license}
+    ## Contributing 
+    ${data.contributors}
+    ## Tests
+    ${data.test}
+    ## Questions
+    If you have any questions about this projects, please contact me directly at ${data.email}. You can view more of my projects at https://github.com/${data.github}.
+  `;
+  }
   
-        resolve({
-          ok: true,
-          message: 'File created!'
-        });
-      });
-    });
-  };
+  
+  // use for importing Markdown in index 
+  module.exports = generateMarkdown;

@@ -1,12 +1,14 @@
-// Require
-const fs = require('fs');
-const inquirer = require('inquirer');
-const { writeFile,} = require('./utils/generate-page');
+// require modules 
+const fs = require('fs'); 
+const inquirer = require('inquirer'); 
 
-//questions
-inquirer 
-.prompt ([ 
-      {
+// linking to page where the README is developed 
+const generateMd = require('./utils/generate-page.js');
+
+// array of questions for user from inquirer
+const questions = () => {
+    return inquirer.prompt([
+    {
         type: 'input',
         name: 'title',
         message: 'What is your title of your project? (Required)',
@@ -105,12 +107,35 @@ inquirer
         }
         
     }
-}])
+}])}
 
-promptUser()
-  .then(portfolioData => {
-    return generatePage(portfolioData);
-  })
-  .then(pageMD => {
-    return writeFile(pageHTML);
-  })
+ // function to write README file using file system 
+const writeFile = data => {
+    fs.writeFile('README.md', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the README has been created 
+        } else {
+            console.log("Your README has been successfully created!")
+        }
+    })
+}; 
+
+// function call to initialize program
+questions()
+// getting user answers 
+.then(answers => {
+    return generateMd(answers);
+})
+// using data to display on page 
+.then(data => {
+    return writeFile(data);
+})
+// catching errors 
+.catch(err => {
+    console.log(err)
+})
+  
+ 
