@@ -1,8 +1,8 @@
-# Boedi
+# Professional Readme Generator
     
     
     ##Description
-    It's cool
+    An application that is able to generate a markdown readme file from the command line.
     
     ## Table of Contents
     * [Installation](#installation)
@@ -13,15 +13,15 @@
     * [Questions](#questions)
     
     ## Installation 
-    downlaodl this and that
+    NPM inquirer is need.  You can use 'npm init' and then 'npm install'.
     ## Usage 
-    then run node
+    After getting inquirer installed, run 'node index' in the command line.
     ## License 
     This project is license under MIT
     ## Contributing 
-    boedi
+    Boedi
     ## Tests
-    run it
+    Run the application all the way through.
     ## Questions
     You can reach me at boedi15@gmail.com with any questions. You can view more of my projects at https://github.com/bodizzle.
   
