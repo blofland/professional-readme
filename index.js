@@ -35,26 +35,38 @@ const questions = () => {
              }
          }
      },
-
      {
-         type: 'input',
-         name: 'toc',
-         message: 'Please add table of contents. (Required)',
-         validate: tocInput => {
-             if (tocInput) {
-                 return true;
-             } else {
-                 console.log('You need to provide a table of contents');
-                 return false;
-             
-             }
-         }
-     },
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your email address!');
+                return false; 
+            }
+        }
 
+    },
+
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub username?',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false; 
+            }
+        } 
+    },
      {
          type: 'input',
          name: 'installation',
-         message: 'How do you install your project? (Required)',
+         message: 'Please enter steps required to install project! (Required)',
          validate: installationInput => {
              if (installationInput) {
                  return true;
@@ -77,6 +89,21 @@ const questions = () => {
                 return false;
             }
             
+        }
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What kind of license should your project have?',
+        choices: ['MIT', 'GNU', 'ZLIB', 'LGPL'],
+        default: ["MIT"],
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please choose a license!');
+                return false; 
+            }
         }
     },
 {

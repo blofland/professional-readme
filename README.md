@@ -1,8 +1,8 @@
-# hey
+# Boedi
     
     
     ##Description
-    you
+    It's cool
     
     ## Table of Contents
     * [Installation](#installation)
@@ -13,15 +13,15 @@
     * [Questions](#questions)
     
     ## Installation 
-    undefined
+    downlaodl this and that
     ## Usage 
-    you
+    then run node
     ## License 
-    This project is license under undefined
+    This project is license under MIT
     ## Contributing 
-    undefined
+    boedi
     ## Tests
-    undefined
+    run it
     ## Questions
-    If you have any questions about this projects, please contact me directly at undefined. You can view more of my projects at https://github.com/undefined.
+    You can reach me at boedi15@gmail.com with any questions. You can view more of my projects at https://github.com/bodizzle.
   
